@@ -1,23 +1,60 @@
 <section id="register" class="py-16 bg-primary text-white">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold mb-8">立即報名</h2>
-    <div class="max-w-2xl mx-auto space-y-6">
-      <div>
-        <h3 class="text-xl mb-4">WhatsApp報名</h3>
-        <a href="https://wa.me/85296532821" class="inline-block bg-white text-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
-          +852 9653 2821
-        </a>
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8 text-center">立即報名</h2>
+    <div class="max-w-2xl mx-auto">
+      <form action="https://formspree.io/f/mwpedjgn" method="POST" class="space-y-6 bg-white p-8 rounded-lg shadow-md">
+        <div>
+          <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 font-medium mb-2">電郵地址</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-700 font-medium mb-2">WhatsApp 電話</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+        </div>
+        <div class="flex items-start">
+          <input
+            type="checkbox"
+            id="newsletter"
+            name="newsletter"
+            class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+          />
+          <label for="newsletter" class="ml-2 block text-gray-700">
+            訂閱電子報，獲取最新AI課程資訊
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-secondary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+        >
+          提交報名
+        </button>
+      </form>
+      <div class="mt-12 text-sm opacity-80 text-center">
+        <p>⚡️ 重要提醒</p>
+        <p>請自備手提電腦：課程包含大量實機操作練習，需要使用個人電腦進行學習。</p>
       </div>
-      <div>
-        <h3 class="text-xl mb-4">填寫報名表格</h3>
-        <a href="https://www.wingleung.me/contact" class="inline-block bg-secondary text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">
-          前往報名
-        </a>
-      </div>
-    </div>
-    <div class="mt-12 text-sm opacity-80">
-      <p>⚡️ 重要提醒</p>
-      <p>請自備手提電腦：課程包含大量實機操作練習，需要使用個人電腦進行學習。</p>
     </div>
   </div>
 </section>
