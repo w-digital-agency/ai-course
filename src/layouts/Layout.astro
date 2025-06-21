@@ -7,21 +7,22 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="數碼化急速發展的時代，掌握AI工具已經不再是選擇，而是生存必需。本課程專為中小企老闆、營銷團隊及創業者度身設計，提供課後1對1個別輔導，助你制定個人化的AI轉型策略！" />
+    <meta name="description" content="Transform your business with AI-powered solutions, automation, and expert digital marketing strategies. Get free consultation today." />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:image" content="https://www.wingleung.me/wp-content/uploads/2025/05/AI-Course-2-Key-visual.png" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="數碼化急速發展的時代，掌握AI工具已經不再是選擇，而是生存必需。本課程專為中小企老闆、營銷團隊及創業者度身設計，提供課後1對1個別輔導，助你制定個人化的AI轉型策略！" />
+    <meta property="og:description" content="Transform your business with AI-powered solutions, automation, and expert digital marketing strategies. Get free consultation today." />
     <meta property="og:type" content="website" />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-white text-gray-900 antialiased">
     <slot />
   </body>
 </html>
@@ -29,5 +30,9 @@ const { title } = Astro.props;
 <style>
   html {
     scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 </style>

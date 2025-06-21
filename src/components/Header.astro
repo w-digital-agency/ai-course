@@ -1,12 +1,16 @@
-<header class="bg-white shadow-sm fixed w-full top-0 z-50">
-  <nav class="container mx-auto px-4 py-4">
+<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <nav class="container mx-auto px-6 py-4">
     <div class="flex justify-between items-center">
-      <a href="/" class="text-2xl font-bold text-primary">WDigital</a>
-      <div class="hidden md:flex space-x-6">
-        <a href="#services" class="text-gray-600 hover:text-primary transition">Services</a>
-        <a href="#testimonials" class="text-gray-600 hover:text-primary transition">Testimonials</a>
-        <a href="/course" class="text-gray-600 hover:text-primary transition">AI Course</a>
-        <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition">Get Started</a>
+      <a href="/" class="text-2xl font-bold text-primary">
+        WDigital
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#services" class="text-gray-600 hover:text-primary transition-colors font-medium">Services</a>
+        <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors font-medium">Testimonials</a>
+        <a href="/course" class="text-gray-600 hover:text-primary transition-colors font-medium">AI Course</a>
+        <a href="#contact" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-gray-800 transition-colors font-medium">
+          Get Started
+        </a>
       </div>
       <div class="md:hidden">
         <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
@@ -16,11 +20,13 @@
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-      <a href="#services" class="block text-gray-600 hover:text-primary transition py-2">Services</a>
-      <a href="#testimonials" class="block text-gray-600 hover:text-primary transition py-2">Testimonials</a>
-      <a href="/course" class="block text-gray-600 hover:text-primary transition py-2">AI Course</a>
-      <a href="#contact" class="block bg-primary text-white px-4 py-2 rounded-lg hover:bg-secondary transition text-center">Get Started</a>
+    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4 pb-4">
+      <a href="#services" class="block text-gray-600 hover:text-primary transition-colors py-2 font-medium">Services</a>
+      <a href="#testimonials" class="block text-gray-600 hover:text-primary transition-colors py-2 font-medium">Testimonials</a>
+      <a href="/course" class="block text-gray-600 hover:text-primary transition-colors py-2 font-medium">AI Course</a>
+      <a href="#contact" class="block bg-primary text-white px-6 py-2.5 rounded-full hover:bg-gray-800 transition-colors text-center font-medium">
+        Get Started
+      </a>
     </div>
   </nav>
 </header>
