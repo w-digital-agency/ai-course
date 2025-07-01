@@ -2,17 +2,31 @@
   "name": "wdigital-astro",
   "type": "module",
   "version": "0.1.0",
+  "description": "WDigital - AI-Powered Digital Marketing Agency Website built with Astro and Tailwind CSS",
+  "author": "WDigital Agency",
+  "license": "UNLICENSED",
   "private": true,
+  "keywords": ["astro", "tailwindcss", "digital-marketing", "ai", "hong-kong", "website"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/wdigital-astro.git"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/astro dev",
+    "start": "npm run dev",
     "build": "./node_modules/.bin/astro build",
     "preview": "./node_modules/.bin/astro preview",
-    "astro": "./node_modules/.bin/astro"
+    "astro": "./node_modules/.bin/astro",
+    "check": "./node_modules/.bin/astro check",
+    "lint": "echo 'Add linting here if needed'"
   },
   "dependencies": {
     "astro": "^5.2.5",
     "@astrojs/tailwind": "^5.1.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animated": "^1.0.1"
-  } 
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
