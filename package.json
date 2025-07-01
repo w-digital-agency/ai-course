@@ -9,7 +9,7 @@
   "keywords": ["astro", "tailwindcss", "digital-marketing", "ai", "hong-kong", "website"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/wdigital-astro.git"
+    "url": "https://github.com/w-digital-agency/wdigital-astro.git"
   },
   "scripts": {
     "dev": "./node_modules/.bin/astro dev",
