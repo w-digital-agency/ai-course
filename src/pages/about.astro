@@ -4,7 +4,29 @@ import Header from '../components/Header.astro';
 import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="About Us - WDigital | AI-Powered Digital Marketing Agency">
+<Layout 
+  title="About Us - WDigital | AI-Powered Digital Marketing Agency"
+  description="Learn about WDigital, Hong Kong's leading AI-powered digital marketing agency. Our mission is to transform businesses through innovative marketing solutions and automation."
+  keywords="digital marketing agency Hong Kong, AI-powered marketing solutions, performance marketing team, marketing automation experts"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About WDigital",
+    "description": "WDigital is a leading AI-powered digital marketing agency in Hong Kong, specializing in performance marketing and business automation.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "WDigital",
+      "foundingDate": "2019",
+      "numberOfEmployees": "10-50",
+      "knowsAbout": [
+        "Digital Marketing",
+        "AI Consultation",
+        "Performance Marketing",
+        "Business Automation"
+      ]
+    }
+  }}
+>
   <Header />
   <main>
     <!-- Hero Section -->
