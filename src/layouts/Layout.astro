@@ -1,26 +1,45 @@
 ---
+import SEO from '../components/SEO.astro';
+import Analytics from '../components/Analytics.astro';
+
 interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  structuredData?: object;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "Transform your business with AI-powered solutions, automation, and expert digital marketing strategies. Get free consultation today.",
+  keywords,
+  image,
+  structuredData 
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Transform your business with AI-powered solutions, automation, and expert digital marketing strategies. Get free consultation today." />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://wdigital.s3.ap-southeast-1.amazonaws.com/images/W-Digital-favicon-6464.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content="Transform your business with AI-powered solutions, automation, and expert digital marketing strategies. Get free consultation today." />
-    <meta property="og:type" content="website" />
-    <title>{title}</title>
+    
+    <!-- SEO Component with enhanced meta tags -->
+    <SEO 
+      title={title}
+      description={description}
+      keywords={keywords}
+      image={image}
+      structuredData={structuredData}
+    />
+    
+    <!-- Google Analytics -->
+    <Analytics />
   </head>
   <body class="bg-white text-gray-900 antialiased">
     <slot />

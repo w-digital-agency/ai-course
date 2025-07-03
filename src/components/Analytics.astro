@@ -1,0 +1,55 @@
+---
+// Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics 4 Measurement ID
+// Example: 'G-XXXXXXXXXX'
+const GA_MEASUREMENT_ID = 'GA_MEASUREMENT_ID'; // TODO: Replace with actual GA4 ID
+
+// Only load analytics in production
+const isProduction = import.meta.env.PROD || false;
+---
+
+{isProduction && GA_MEASUREMENT_ID !== 'GA_MEASUREMENT_ID' && (
+  <>
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID, {
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    </script>
+  </>
+)}
+
+<!-- Google Tag Manager (Alternative) - Uncomment if using GTM instead of GA4 directly -->
+<!--
+{isProduction && (
+  <>
+    <script type="text/partytown">
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-XXXXXXX');
+    </script>
+  </>
+)}
+-->
+
+<!-- TODO: Instructions for setup -->
+<!-- 
+To complete Google Analytics setup:
+
+1. Create a Google Analytics 4 property at https://analytics.google.com
+2. Get your Measurement ID (starts with 'G-')
+3. Replace 'GA_MEASUREMENT_ID' above with your actual ID
+4. The analytics will only load in production builds
+
+For Google Tag Manager (alternative):
+1. Create a GTM container at https://tagmanager.google.com
+2. Replace 'GTM-XXXXXXX' with your actual Container ID
+3. Add the noscript fallback to your body tag
+4. Uncomment the GTM code above and comment out the GA4 code
+-->
