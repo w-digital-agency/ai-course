@@ -149,3 +149,86 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Google Analytics event tracking for contact form
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('form[action="https://formspree.io/f/mvgpjneq"]');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        // Get form data for enhanced tracking
+        const formData = new FormData(contactForm as HTMLFormElement);
+        const serviceName = formData.get('service')?.toString() || 'not_specified';
+        const hasCompany = formData.get('company') ? 'yes' : 'no';
+        
+        // Track the contact form submission
+        if (typeof (window as any).trackContactForm === 'function') {
+          (window as any).trackContactForm();
+        }
+        
+        // Track additional custom event with more details
+        if (typeof (window as any).trackEvent === 'function') {
+          (window as any).trackEvent('form_submit', {
+            event_category: 'contact',
+            event_label: 'consultation_request',
+            service_interest: serviceName,
+            has_company: hasCompany,
+            form_location: 'main_contact_section'
+          });
+        }
+        
+        // Track service-specific interest
+        if (serviceName && serviceName !== 'not_specified' && typeof (window as any).trackEvent === 'function') {
+          (window as any).trackEvent('service_interest', {
+            event_category: 'lead_qualification',
+            event_label: serviceName,
+            form_location: 'contact_form'
+          });
+        }
+        
+        // Optional: Track form completion funnel
+        if (typeof (window as any).gtag === 'function') {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'G-F3P521BE2K/contact_form_submit'
+          });
+        }
+        
+        console.log('Contact form submission tracked:', {
+          service: serviceName,
+          hasCompany: hasCompany,
+          timestamp: new Date().toISOString()
+        });
+      });
+      
+      // Track form field interactions for better insights
+      const formFields = contactForm.querySelectorAll('input, select, textarea');
+      formFields.forEach(field => {
+        field.addEventListener('focus', function() {
+          const element = field as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+          if (typeof (window as any).trackEvent === 'function') {
+            (window as any).trackEvent('form_field_focus', {
+              event_category: 'form_interaction',
+              event_label: element.name || element.id,
+              field_type: element.type || element.tagName.toLowerCase()
+            });
+          }
+        });
+      });
+      
+      // Track service selection specifically
+      const serviceSelect = contactForm.querySelector('#service') as HTMLSelectElement;
+      if (serviceSelect) {
+        serviceSelect.addEventListener('change', function() {
+          if (this.value && typeof (window as any).trackEvent === 'function') {
+            (window as any).trackEvent('service_selection', {
+              event_category: 'lead_qualification',
+              event_label: this.value,
+              selection_method: 'dropdown'
+            });
+          }
+        });
+      }
+    }
+  });
+</script>
