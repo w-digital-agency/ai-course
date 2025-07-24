@@ -12,11 +12,11 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap(),
-    partytown({
+    !import.meta.env.DEV && partytown({
       config: {
         forward: ["gtag", "dataLayer.push"],
       },
     }),
-  ],
+  ].filter(Boolean),
 });
 

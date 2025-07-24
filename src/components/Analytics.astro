@@ -1,17 +1,17 @@
 ---
 // Replace 'GA_MEASUREMENT_ID' with your actual Google Analytics 4 Measurement ID
 // Example: 'G-XXXXXXXXXX'
-const GA_MEASUREMENT_ID = 'GA_MEASUREMENT_ID'; // TODO: Replace with actual GA4 ID
+const GA_MEASUREMENT_ID = 'G-F3P521BE2K'; // TODO: Replace with actual GA4 ID
 
 // Only load analytics in production
 const isProduction = import.meta.env.PROD || false;
 ---
 
-{isProduction && GA_MEASUREMENT_ID !== 'GA_MEASUREMENT_ID' && (
+{isProduction && GA_MEASUREMENT_ID && (
   <>
     <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
-    <script type="text/partytown">
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -19,24 +19,49 @@ const isProduction = import.meta.env.PROD || false;
         page_title: document.title,
         page_location: window.location.href,
       });
+
+      // Custom event tracking functions
+      window.trackEvent = function(eventName, parameters = {}) {
+        gtag('event', eventName, parameters);
+      };
+
+      // Track common interactions
+      window.trackContactForm = function() {
+        gtag('event', 'contact_form_submit', {
+          event_category: 'engagement',
+          event_label: 'contact_form'
+        });
+      };
+
+      window.trackServiceView = function(serviceName) {
+        gtag('event', 'service_view', {
+          event_category: 'engagement',
+          event_label: serviceName
+        });
+      };
+
+      window.trackDownload = function(fileName) {
+        gtag('event', 'file_download', {
+          event_category: 'engagement',
+          event_label: fileName
+        });
+      };
     </script>
   </>
 )}
 
 <!-- Google Tag Manager (Alternative) - Uncomment if using GTM instead of GA4 directly -->
-<!--
 {isProduction && (
   <>
-    <script type="text/partytown">
+    <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-XXXXXXX');
+      })(window,document,'script','dataLayer','GTM-P2LHMBN');
     </script>
   </>
 )}
--->
 
 <!-- TODO: Instructions for setup -->
 <!-- 
@@ -46,6 +71,12 @@ To complete Google Analytics setup:
 2. Get your Measurement ID (starts with 'G-')
 3. Replace 'GA_MEASUREMENT_ID' above with your actual ID
 4. The analytics will only load in production builds
+
+Custom Event Tracking:
+- Use window.trackEvent('event_name', {parameters}) for custom events
+- Use window.trackContactForm() when contact forms are submitted
+- Use window.trackServiceView('service_name') when services are viewed
+- Use window.trackDownload('file_name') when files are downloaded
 
 For Google Tag Manager (alternative):
 1. Create a GTM container at https://tagmanager.google.com
